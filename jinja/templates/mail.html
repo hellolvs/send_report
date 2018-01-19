@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .myimg img {
+            max-width: 400px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div>
+        <div>
+            <p>最近一周ATP事件记录：</p>
+        </div>
+        <div>
+            <table style="margin: 10px auto; border-collapse:collapse;" border="1" bordercolor="#a0c6e5">
+                <tr>
+                    <th>事件ID</th>
+                    <th>事件名称</th>
+                    <th>业务线</th>
+                    <th>事件类型</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>事件地点</th>
+                    <th>事件描述</th>
+                    <th>订单详情</th>
+                </tr>
+                {% for row in results %}
+                <tr>
+                    <td>{{row["id"]}}</td>
+                    <td>{{row["name"]}}</td>
+                    <td>{{row["business_line"]}}</td>
+                    <td>{{row["type"]}}</td>
+                    <td>{{row["start_time"]}}</td>
+                    <td>{{row["end_time"]}}</td>
+                    <td>{{row["place"]}}</td>
+                    <td>{{row["description"]}}</td>
+                    <td class="myimg"><img src="cid:{{row['id']}}"></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
